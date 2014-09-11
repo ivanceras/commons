@@ -39,7 +39,6 @@ public class FileUtil {
 			directory = directory +"/";
 		}
 		File out = new File (directory+fileName);
-		//System.out.println(directory+fileName);
 		try {
 			Writer fw = new OutputStreamWriter(new FileOutputStream(out, true), "UTF-8");
 			try {
@@ -62,7 +61,9 @@ public class FileUtil {
 			char[] cbuf = new char[(int) in.length()];
 			try{
 				fr.read(cbuf);
-				return String.valueOf(cbuf);
+				String ret = String.valueOf(cbuf);
+				fr.close();
+				return ret;
 			}catch(Exception e){
 				e.printStackTrace();
 			}

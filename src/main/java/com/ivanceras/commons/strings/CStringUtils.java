@@ -8,6 +8,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 
+/**
+ * Common String utility used by ORM
+ * @author lee
+ *
+ */
+
 public class CStringUtils {
 
 	public static String truncate(String var, int limit){
