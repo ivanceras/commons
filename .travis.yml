@@ -11,5 +11,5 @@ before_script:
 install: mvn clean install
 
 branches:
-  except:
-      - mvn-repo
+  only:
+  - master
