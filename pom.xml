@@ -9,6 +9,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>commons</artifactId>
+  <version>0.0.5-SNAPSHOT</version>
 	<name>commons</name>
 	<description>Commons Library for Ivanceras</description>
 
