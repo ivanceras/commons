@@ -37,6 +37,14 @@ public interface SourceWriter {
 
   void println(String s);
 
+  void lnprint();
+  
+  /**
+   * new line before printing string
+   * @param s
+   */
+  void lnprint(String s);
+
   /**
    * Emit a printf-style string.
    */

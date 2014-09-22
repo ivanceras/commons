@@ -2,4 +2,6 @@
 <module rename-to='data'>
   <source path='strings'/>
   <source path='commons'/>
+  <source path='conf'/>
+  <source path='client'/>
 </module>
