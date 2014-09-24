@@ -6,3 +6,6 @@ before_install:
  - cd parent
  - mvn clean install -Dgpg.skip=true
  - cd ../
+
+install: 
+ - mvn clean install -Dgpg.skip=true
