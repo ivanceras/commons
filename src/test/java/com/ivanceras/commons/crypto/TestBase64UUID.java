@@ -6,6 +6,8 @@ import java.util.UUID;
 
 import org.junit.Test;
 
+import com.ivanceras.commons.server.Base64UUID;
+
 public class TestBase64UUID {
 	
 	@Test

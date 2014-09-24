@@ -1,12 +1,10 @@
 package com.ivanceras.commons.crypto;
 
 import java.security.SignatureException;
-import java.util.UUID;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-import org.apache.commons.codec.binary.Base64;
 
 /**
  * 
@@ -15,24 +13,27 @@ import org.apache.commons.codec.binary.Base64;
  */
 public class Crypto {
 
-	private static final String HMAC_MD5_ALGORITHM = "HmacMD5";
-	private static final String HMAC_SHA1_ALGORITHM = "HmacSHA1";
-	private static final String HMAC_SHA256_ALGORITHM = "HmacSHA256";
-	private static final String HMAC_SHA512_ALGORITHM = "HmacSHA512";
+	public static final String HMAC_MD5_ALGORITHM = "HmacMD5";
+	public static final String HMAC_SHA1_ALGORITHM = "HmacSHA1";
+	public static final String HMAC_SHA256_ALGORITHM = "HmacSHA256";
+	public static final String HMAC_SHA512_ALGORITHM = "HmacSHA512";
 
 
 	public static String calculate(String algorithm, String data, String key) throws SignatureException{
-		String result;
+		byte[] rawBytes = calculateRaw(algorithm, data, key);
+		return CBase64Utils.toBase64NoPadding(rawBytes);
+	}
+
+	public static byte[] calculateRaw(String algorithm, String data, String key) throws SignatureException{
 		try {
 			SecretKeySpec signingKey = new SecretKeySpec(key.getBytes(), algorithm);
 			Mac mac = Mac.getInstance(algorithm);
 			mac.init(signingKey);
 			byte[] rawHmac = mac.doFinal(data.getBytes());
-			result = Base64.encodeBase64String(rawHmac);
+			return rawHmac;
 		} catch (Exception e) {
 			throw new SignatureException("Failed to generate HMAC : " + e.getMessage());
 		}
-		return result;
 	}
 
 	public static String calculateHmacMD5(String data, String key) throws SignatureException{
@@ -61,11 +62,6 @@ public class Crypto {
 		return calculateHmacSHA1(data, key);
 	}
 
-	public static String createRandomKey(){
-		UUID uuid = UUID.randomUUID();
-		String base64 = Base64UUID.toBase64(uuid);
-		return base64;
-	}
 
 
 }

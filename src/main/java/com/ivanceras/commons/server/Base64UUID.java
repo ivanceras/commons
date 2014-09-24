@@ -1,10 +1,15 @@
-package com.ivanceras.commons.crypto;
+package com.ivanceras.commons.server;
 
 import java.nio.ByteBuffer;
 import java.util.UUID;
 
 import org.apache.commons.codec.binary.Base64;
 
+/**
+ * This can not be used in GWT sicne there is no java.nio emulation in GWT
+ * @author lee
+ *
+ */
 public class Base64UUID {
 
 	public static String toBase64(UUID uuid) {
@@ -20,5 +25,10 @@ public class Base64UUID {
 		return uuid;
 	}
 	
+	public static String createRandomKey(){
+		UUID uuid = UUID.randomUUID();
+		String base64 = Base64UUID.toBase64(uuid);
+		return base64;
+	}
 
 }

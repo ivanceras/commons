@@ -4,4 +4,6 @@
   <source path='commons'/>
   <source path='conf'/>
   <source path='client'/>
+  <source path='types'/>
+  <source path='crypto'/>
 </module>
