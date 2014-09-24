@@ -1,6 +1,8 @@
 package com.ivanceras.commons.types;
 
 import java.math.BigDecimal;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -68,6 +70,8 @@ public class FieldTypes {
         ret.add(String.class);
         ret.add(BigDecimal.class);
         ret.add(UUID.class);
+        ret.add(Time.class);
+        ret.add(Timestamp.class);
         return ret;
     }
 	
@@ -104,8 +108,11 @@ public class FieldTypes {
 		}
 		else if(clazz.equals(Date.class)){
 //			long time = ((Date)obj).getTime();
-			//TODO: how to date ?
-			return new Date();
+			String objString = obj.toString();
+			Console.debug("obj string: "+objString+" "+clazz+" from "+objString.getClass());
+			Long longValue = Long.parseLong(obj.toString());
+//			TODO: how to date ?
+			return new Date(longValue);
 		}
 		else{
 			return null;
