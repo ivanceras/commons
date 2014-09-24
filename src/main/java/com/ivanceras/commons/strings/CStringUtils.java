@@ -111,7 +111,7 @@ public class CStringUtils {
 	public static int indexOf(String[] attributes, String attribute){
 		if(attributes != null){
 			for(int i = 0; i < attributes.length; i++){
-				if(attribute.equals(attributes[i])){
+				if(attributes[i].equals(attribute)){
 					return i;
 				}
 			}
