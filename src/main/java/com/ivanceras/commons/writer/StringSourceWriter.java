@@ -81,14 +81,22 @@ public class StringSourceWriter implements SourceWriter {
 		println();
 	}
 	
+
 	@Override
 	public void lnprint() {
 		println();
 	}
+
 	
 	@Override
 	public void lnprint(String s) {
-		lnprint();
+		println();
+		print(s);
+	}
+	@Override
+	public void lnTabPrint(String s) {
+		println();
+		print("\t");
 		print(s);
 	}
 

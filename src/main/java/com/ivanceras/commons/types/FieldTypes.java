@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -72,6 +73,7 @@ public class FieldTypes {
         ret.add(UUID.class);
         ret.add(Time.class);
         ret.add(Timestamp.class);
+        ret.add(HashMap.class);
         return ret;
     }
 	
@@ -107,14 +109,24 @@ public class FieldTypes {
 			return UUID.fromString(obj.toString());
 		}
 		else if(clazz.equals(Date.class)){
-//			long time = ((Date)obj).getTime();
-			String objString = obj.toString();
-			Console.debug("obj string: "+objString+" "+clazz+" from "+objString.getClass());
 			Long longValue = Long.parseLong(obj.toString());
-//			TODO: how to date ?
 			return new Date(longValue);
 		}
+		else if(clazz.equals(Time.class)){
+			String timeStr = obj.toString();
+			Console.log("So how do we convert: ["+timeStr+"] to "+Time.class);
+			return Time.valueOf(timeStr);
+		}
+		else if(clazz.equals(Timestamp.class)){
+			Long longValue = Long.parseLong(obj.toString());
+			return new Timestamp(longValue);
+		}
+		else if(clazz.equals(HashMap.class)){
+			Console.log("What to do with hashmap in javascript?");
+			return obj.toString();
+		}
 		else{
+			Console.error("No implementation of converting "+obj+" to "+clazz+" returning this as null, or will create a ClassCastException");
 			return null;
 		}
 	}

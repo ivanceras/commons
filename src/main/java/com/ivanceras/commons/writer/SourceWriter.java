@@ -38,6 +38,7 @@ public interface SourceWriter {
   void println(String s);
 
   void lnprint();
+
   
   /**
    * new line before printing string
@@ -45,8 +46,11 @@ public interface SourceWriter {
    */
   void lnprint(String s);
 
+  void lnTabPrint(String s);
+
   /**
    * Emit a printf-style string.
    */
   void println(String s, Object... args);
+
 }

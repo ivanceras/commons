@@ -3,12 +3,26 @@ package com.ivanceras.commons.client;
 import com.google.gwt.core.shared.GWT;
 
 public class Console {
+	
+	/**
+	 * Won't print log console when deployed in production
+	 */
+	static boolean production = false;
+	
+	private static boolean can(){
+		if(GWT.isClient() && !production){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 
 	public static void debug(String msg){
 		debug(msg, "");
 	}
 	public static void debug(String msg, Object js){
-		if(GWT.isClient()){
+		if(can()){
 			nativeDebug(msg, js);
 		}else{
 			System.out.println(msg+" "+js);
@@ -20,7 +34,7 @@ public class Console {
 	}
 
 	public static void error(String msg, Object obj){
-		if(GWT.isClient()){
+		if(can()){
 			nativeError(msg, obj);
 		}else{
 			System.out.println(msg);
@@ -32,7 +46,7 @@ public class Console {
 	}
 	
 	public static void group(String msg, Object obj){
-		if(GWT.isClient()){
+		if(can()){
 			nativeGroup(msg, obj);
 		}else{
 			System.out.println(msg);
@@ -43,7 +57,7 @@ public class Console {
 	}
 
 	public static void groupCollapsed(String msg, Object obj){
-		if(GWT.isClient()){
+		if(can()){
 			nativeGroupCollapsed(msg, obj);
 		}else{
 			System.out.println(msg);
@@ -51,7 +65,7 @@ public class Console {
 	}
 	
 	public static void groupEnd(){
-		if(GWT.isClient()){
+		if(can()){
 			nativeGroupEnd();
 		}
 	}
@@ -62,7 +76,7 @@ public class Console {
 
 	
 	public static void info(String msg, Object obj){
-		if(GWT.isClient()){
+		if(can()){
 			nativeInfo(msg, obj);
 		}else{
 			System.out.println(msg);
@@ -70,15 +84,11 @@ public class Console {
 	}
 	
 	public static void log(String msg){
-		if(GWT.isClient()){
-			nativeLog(msg);
-		}else{
-			System.out.println(msg);
-		}
+		log(msg, "");
 	}
 	
 	public static void log(String msg, Object js){
-		if(GWT.isClient()){
+		if(can()){
 			nativeLog(msg, js);
 		}else{
 			System.out.println(msg+" "+js);
@@ -110,10 +120,10 @@ public class Console {
 	}-*/;
 
 	public static native void nativeLog(String msg)/*-{
-		console.log(JSON.stringify(msg));
+		console.log(msg);
 	}-*/;
 
 	public static native void nativeLog(String msg, Object obj)/*-{
-		console.log(msg+" "+JSON.stringify(obj));
+		console.log(msg, obj);
 	}-*/;
 }
