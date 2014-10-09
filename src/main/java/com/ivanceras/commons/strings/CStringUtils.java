@@ -111,7 +111,7 @@ public class CStringUtils {
 	public static int indexOf(String[] attributes, String attribute){
 		if(attributes != null){
 			for(int i = 0; i < attributes.length; i++){
-				if(attributes[i].equals(attribute)){
+				if(attributes[i] != null && attributes[i].equals(attribute)){
 					return i;
 				}
 			}
@@ -173,5 +173,13 @@ public class CStringUtils {
 			
 		}
 		return buff.toString();
+	}
+	
+	public static String escapeSQL(String sql){
+		if(sql != null && sql.contains("'")){
+			String ret = sql.replace("'", "''");
+			return ret;
+		}
+		return sql;
 	}
 }
