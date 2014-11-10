@@ -211,4 +211,18 @@ public class CBase64Utils {
     }
     return haveNonZero;
   }
+  
+  
+  public static String encode(String input){
+	  if(input == null){return null;}
+	  String base64 = CBase64Utils.toBase64(input.getBytes());
+	  return base64;
+  }
+  
+  public static String decode(String input){
+	  if(input == null){return null;}
+	  byte[] byteA = CBase64Utils.fromBase64(input);
+	  return new String(byteA);
+  }
+  
 }
