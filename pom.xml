@@ -9,7 +9,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>commons</artifactId>
-	<version>0.0.6</version>
+	<version>0.0.7-SNAPSHOT</version>
 
 	<name>commons</name>
 	<description>Commons Library for Ivanceras</description>
@@ -18,7 +18,7 @@
 	<scm>
 		<connection>scm:git:https://github.com/ivanceras/commons.git</connection>
 		<developerConnection>scm:git:https://github.com/ivanceras/commons.git</developerConnection>
-		<tag>commons-0.0.6</tag>
+		<tag>commons-0.0.4</tag>
 		<url>scm:git:https://github.com/ivanceras/commons.git</url>
 	</scm>
 
