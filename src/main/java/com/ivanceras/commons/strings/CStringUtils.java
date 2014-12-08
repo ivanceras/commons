@@ -1,6 +1,3 @@
-/*******************************************************************************
- * Copyright by CMIL
- ******************************************************************************/
 package com.ivanceras.commons.strings;
 
 import java.io.UnsupportedEncodingException;
