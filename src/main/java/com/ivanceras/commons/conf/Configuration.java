@@ -2,6 +2,11 @@ package com.ivanceras.commons.conf;
 
 import com.ivanceras.commons.conf.DBConfig;
 
+/**
+ * TODO: fixe this, better use Properties than Strings
+ * @author lee
+ *
+ */
 public class Configuration {
 	
 	public String baseDirectory;
