@@ -9,6 +9,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>commons</artifactId>
+  <version>0.1.2-SNAPSHOT</version>
 	
 
 	<name>commons</name>
@@ -18,7 +19,7 @@
 	<scm>
 		<connection>scm:git:https://github.com/ivanceras/commons.git</connection>
 		<developerConnection>scm:git:https://github.com/ivanceras/commons.git</developerConnection>
-		<tag>commons-0.1.1</tag>
+		<tag>commons-0.0.4</tag>
 		<url>scm:git:https://github.com/ivanceras/commons.git</url>
 	</scm>
 
