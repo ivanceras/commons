@@ -55,19 +55,6 @@ public class CStringUtils {
 		return capitalize(tableName.toLowerCase());
 	}
 
-	public static String removeVowelsExceptFirst(String var){
-		if(var == null){
-			return null;
-		}
-		if(var.length() < 1){
-			return var;
-		}
-		String char1 = var.substring(0, 1);
-		String rest = var.substring(1, var.length());
-		String novowels = rest.replaceAll("[aeiou]", "");
-		return char1+novowels;
-	}
-
 
 	public static String getHash(String var){
 		try {
